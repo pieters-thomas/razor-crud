@@ -1,0 +1,55 @@
+@page
+@model razor_crud.Pages.Monsters.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-light col-2 mx-auto text-center">Index</h1>
+
+
+<table class="table table-dark">
+    <thead>
+        <tr class="text-success">
+            <th>
+                @Html.DisplayNameFor(model => model.Monster[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Monster[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Monster[0].CR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Monster[0].Source)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="text-light">
+@foreach (var item in Model.Monster) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p class="col-2 mx-auto text-center">
+    <a asp-page="Create" >Create New</a>
+</p>

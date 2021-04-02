@@ -1,0 +1,55 @@
+@page
+@model razor_crud.Pages.Spells.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-light">Index</h1>
+
+
+<table class="table table-dark">
+    <thead>
+        <tr class="text-success">
+            <th>
+                @Html.DisplayNameFor(model => model.Spell[0].SpellName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Spell[0].SpellSlot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Spell[0].Concentration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Spell[0].Components)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Spell) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpellName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpellSlot)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Concentration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Components)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p class="col-2 mx-auto text-center">
+    <a asp-page="Create" >Create New</a>
+</p>

@@ -1,0 +1,61 @@
+@page
+@model razor_crud.Pages.Characters.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-light col-2 mx-auto text-center">Index</h1>
+
+
+<table class="table table-dark">
+    <thead class="text-success">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Character[0].Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Character[0].FirstAdventure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Character[0].Coin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Character[0].Class)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Character[0].Level)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Character) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstAdventure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<p class="col-2 mx-auto text-center">
+    <a asp-page="Create" >Create New</a>
+</p>

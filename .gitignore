@@ -1,0 +1,7 @@
+./wwwroot
+./Properties
+./Data
+./Migrations
+./appsettings.json
+./appsettings.Development.json
+
